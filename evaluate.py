@@ -16,8 +16,8 @@ def evaluate_text_tiling(data):
 		ground_truth_boundaries = y[index]
 		pred_boundaries = ''.join(str(boundary) for boundary in boundaries)
 		ground_truth_boundaries = ''.join(str(boundary) for boundary in ground_truth_boundaries)
-		k = len(ground_truth_boundaries)/float(2.0 * ground_truth_boundaries.count('1') + 1.0)
-		window_diff_score = windowdiff(pred_boundaries, ground_truth_boundaries, WINDOW_DIFF_K)
+		k = int(len(ground_truth_boundaries)/float(2.0 * ground_truth_boundaries.count('1') + 1.0))
+		window_diff_score = windowdiff(pred_boundaries, ground_truth_boundaries, k)
 		window_diffs.append(window_diff_score)
 
 	avg_window_diff_score = np.mean(np.array(window_diffs))
