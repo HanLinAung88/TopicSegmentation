@@ -1,6 +1,7 @@
 from sklearn.model_selection import train_test_split
 from nltk.tokenize import sent_tokenize, word_tokenize
 from itertools import chain 
+<<<<<<< HEAD
 from nltk.corpus import stopwords
 import json
 import string
@@ -13,7 +14,9 @@ def build_vocab(data_file="./data/text_data.json", top_n=1000):
 	data = json.load(open(data_file, 'r'))
 	tokenized_words_count = {}
 	tokenized_words = set()
+	data = json.load(open(data_file, 'r'))
 
+	# TODO: change this to all lectures
 	for course in data:
 		lectures = data[course]
 		for lecture in lectures:
@@ -42,6 +45,7 @@ def build_vocab(data_file="./data/text_data.json", top_n=1000):
 	word2id["UNK"] = len(word2id)
 	id2word = {k: v for k, v in enumerate(vocab)}
 	id2word[str(len(word2id))] = "UNK"
+
 	with open('data/word2id.json', 'w') as f:
 		json.dump(word2id, f)
 	with open('data/id2word.json', 'w') as f:
