@@ -1,7 +1,6 @@
 from sklearn.model_selection import train_test_split
 from nltk.tokenize import sent_tokenize, word_tokenize
 from itertools import chain 
-<<<<<<< HEAD
 from nltk.corpus import stopwords
 import json
 import string
